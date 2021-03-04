@@ -33,8 +33,10 @@
 <meta property="og:image" content="http://example.com/blog/2021/03/04/RecommenderSystem-PartI/4.png">
 <meta property="og:image" content="http://example.com/blog/2021/03/04/RecommenderSystem-PartI/5.png">
 <meta property="og:image" content="http://example.com/blog/2021/03/04/RecommenderSystem-PartI/6.png">
+<meta property="og:image" content="http://example.com/blog/2021/03/04/RecommenderSystem-PartI/8.png">
+<meta property="og:image" content="http://example.com/blog/2021/03/04/RecommenderSystem-PartI/7.png">
 <meta property="article:published_time" content="2021-03-03T17:58:17.000Z">
-<meta property="article:modified_time" content="2021-03-04T09:31:11.312Z">
+<meta property="article:modified_time" content="2021-03-04T10:04:35.594Z">
 <meta property="article:author" content="Joker Jackson">
 <meta property="article:tag" content="推荐系统">
 <meta property="article:tag" content="RecommenderSystem">
@@ -189,7 +191,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-03-04 01:58:17 / Modified: 17:31:11" itemprop="dateCreated datePublished" datetime="2021-03-04T01:58:17+08:00">2021-03-04</time>
+              <time title="Created: 2021-03-04 01:58:17 / Modified: 18:04:35" itemprop="dateCreated datePublished" datetime="2021-03-04T01:58:17+08:00">2021-03-04</time>
             </span>
 
           
@@ -241,8 +243,8 @@
 
 <p>PCA 依赖于以线性合并为基础的经验数据集，尽管一般的非线性 PCA 方法已经提出。PCA 的另一个重要假设是原始数据集是从高斯分布中抽取出来的</p>
 <h3 id="奇异值分解-SVD"><a href="#奇异值分解-SVD" class="headerlink" title="奇异值分解(SVD)"></a>奇异值分解(SVD)</h3><p>矩阵分解方法的特殊实现，因此它和PCA 相关。在 SVD 分解中的关键问题是发现低维特征空间，这些新特征代表概念以及在集合内容中的每一个概念强度都是可计算的。因为 SVD 可以i自动获取到低维空间上的语义概念，它可以被用来当作潜在语义分析的基础。</p>
-<p>SVD 的核心算法的理论：把矩阵 A 分解成 A </p>
-
+<p>SVD 的核心算法的理论：把矩阵 A 分解成<img src="/blog/2021/03/04/RecommenderSystem-PartI/8.png" class="" title="This is an image"> 是可行的。给出 n X m 矩阵的数据 A(n个物品，m个特征)，我们可以获得一个 n X r的矩阵U(n 个物品，r 个概念)，一个 r X r 的对角矩阵 R (概念的长度)，以及 m X r 的矩阵 V (m 特征，r 概念)。</p>
+<img src="/blog/2021/03/04/RecommenderSystem-PartI/7.png" class="" title="This is an image">
     </div>
 
     
