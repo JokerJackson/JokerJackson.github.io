@@ -36,7 +36,7 @@
 <meta property="og:image" content="http://example.com/blog/2021/03/04/RecommenderSystem-PartI/8.png">
 <meta property="og:image" content="http://example.com/blog/2021/03/04/RecommenderSystem-PartI/7.png">
 <meta property="article:published_time" content="2021-03-03T17:58:17.000Z">
-<meta property="article:modified_time" content="2021-03-04T10:04:35.594Z">
+<meta property="article:modified_time" content="2021-03-12T08:02:46.957Z">
 <meta property="article:author" content="Joker Jackson">
 <meta property="article:tag" content="推荐系统">
 <meta property="article:tag" content="RecommenderSystem">
@@ -189,10 +189,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-03-04 01:58:17 / Modified: 18:04:35" itemprop="dateCreated datePublished" datetime="2021-03-04T01:58:17+08:00">2021-03-04</time>
+              <time title="Created: 2021-03-04 01:58:17" itemprop="dateCreated datePublished" datetime="2021-03-04T01:58:17+08:00">2021-03-04</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-12 16:02:46" itemprop="dateModified" datetime="2021-03-12T16:02:46+08:00">2021-03-12</time>
+              </span>
 
           
 
@@ -245,6 +251,12 @@
 <h3 id="奇异值分解-SVD"><a href="#奇异值分解-SVD" class="headerlink" title="奇异值分解(SVD)"></a>奇异值分解(SVD)</h3><p>矩阵分解方法的特殊实现，因此它和PCA 相关。在 SVD 分解中的关键问题是发现低维特征空间，这些新特征代表概念以及在集合内容中的每一个概念强度都是可计算的。因为 SVD 可以i自动获取到低维空间上的语义概念，它可以被用来当作潜在语义分析的基础。</p>
 <p>SVD 的核心算法的理论：把矩阵 A 分解成<img src="/blog/2021/03/04/RecommenderSystem-PartI/8.png" class="" title="This is an image"> 是可行的。给出 n X m 矩阵的数据 A(n个物品，m个特征)，我们可以获得一个 n X r的矩阵U(n 个物品，r 个概念)，一个 r X r 的对角矩阵 R (概念的长度)，以及 m X r 的矩阵 V (m 特征，r 概念)。</p>
 <img src="/blog/2021/03/04/RecommenderSystem-PartI/7.png" class="" title="This is an image">
+
+<p>为了计算矩形矩阵A的SVD，我们考虑如下公式AA^T和(A^T)A。U的列是AA^T的特征向量，V的列是(A^T)A的特征向量。矩阵对角线上的奇异值是AA^T和(A^T)A非零特征值的平方根。因此，为了计算矩阵A 的SVD，首先计算AA^T(T)以及(A^T)A(D)，然后计算T和D的特诊向量和特征值。</p>
+<p>λ中的特征值r是有序递减的，初始矩阵A可以通过截取前k 歌特诊值来近似构造。</p>
+<h2 id="去噪"><a href="#去噪" class="headerlink" title="去噪"></a>去噪</h2><p>数据挖掘中采集的数据可能会有各种噪声，去噪是非常重要的预处理步骤，其目的是在最大化信息量时去除掉不必要的影响。</p>
+<p>一般情况下噪声定义为在数据收集阶段收集到的一些可能影响数据分析和解释结果的伪造数据。在推荐系统中区分为自然的和恶意的噪声。自然的噪声是用户在选择偏好反馈时无意产生的。恶意的噪声是为了偏离结果在系统中故意引入的。</p>
+
     </div>
 
     
@@ -319,7 +331,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">数据预处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E4%BC%BC%E5%BA%A6%E5%BA%A6%E9%87%8F%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">相似度度量方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%BD%E6%A0%B7"><span class="nav-number">1.2.</span> <span class="nav-text">抽样</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%8D%E7%BB%B4"><span class="nav-number">1.3.</span> <span class="nav-text">降维</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90-PCA"><span class="nav-number">1.3.1.</span> <span class="nav-text">主成分分析(PCA)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3-SVD"><span class="nav-number">1.3.2.</span> <span class="nav-text">奇异值分解(SVD)</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">数据预处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E4%BC%BC%E5%BA%A6%E5%BA%A6%E9%87%8F%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">相似度度量方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%BD%E6%A0%B7"><span class="nav-number">1.2.</span> <span class="nav-text">抽样</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%8D%E7%BB%B4"><span class="nav-number">1.3.</span> <span class="nav-text">降维</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90-PCA"><span class="nav-number">1.3.1.</span> <span class="nav-text">主成分分析(PCA)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3-SVD"><span class="nav-number">1.3.2.</span> <span class="nav-text">奇异值分解(SVD)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%BB%E5%99%AA"><span class="nav-number">1.4.</span> <span class="nav-text">去噪</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
