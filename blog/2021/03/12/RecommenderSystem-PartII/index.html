@@ -28,8 +28,9 @@
 <meta property="og:description" content="基于内容的推荐系统：前沿和趋势简介在现在的数字化生活中，在网络上存在着大量而丰富的信息，因为它们的动态性和多样性，我们很难快速的找到想要的或者满足我们需求的东西。 所以，用户建模和个人资料访问的作用变得越来越重要：根据喜好和品味，用户需要个性化的支持来从大量信息中筛选出可用信息。 海量的信息来源表明，推荐系统是可以满足用户个性化需求的一种方式。推荐系统在巨大的可能选择范围内引导用户发现感兴趣的或有">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/blog/2021/03/12/RecommenderSystem-PartII/1.png">
+<meta property="og:image" content="http://example.com/blog/2021/03/12/RecommenderSystem-PartII/2.png">
 <meta property="article:published_time" content="2021-03-12T08:07:58.000Z">
-<meta property="article:modified_time" content="2021-03-12T10:44:47.679Z">
+<meta property="article:modified_time" content="2021-03-13T08:03:43.314Z">
 <meta property="article:author" content="Joker Jackson">
 <meta property="article:tag" content="推荐系统">
 <meta property="article:tag" content="RecommenderSystem">
@@ -182,10 +183,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-03-12 16:07:58 / Modified: 18:44:47" itemprop="dateCreated datePublished" datetime="2021-03-12T16:07:58+08:00">2021-03-12</time>
+              <time title="Created: 2021-03-12 16:07:58" itemprop="dateCreated datePublished" datetime="2021-03-12T16:07:58+08:00">2021-03-12</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-13 16:03:43" itemprop="dateModified" datetime="2021-03-13T16:03:43+08:00">2021-03-13</time>
+              </span>
 
           
 
@@ -218,7 +225,35 @@
 <li><strong>评分：</strong>经常用来评价物品的一个离散的数值刻度。标记化的评价也可以映射到数值刻度。</li>
 <li><strong>文本评论：</strong>收集并展示单一物品的评价给用户，使其成为用户加快决策过程的一种方式</li>
 </ul>
-
+<h3 id="基于内容过滤的优缺点"><a href="#基于内容过滤的优缺点" class="headerlink" title="基于内容过滤的优缺点"></a>基于内容过滤的优缺点</h3><p>基于内容的推荐与基于协同过滤的推荐相比有以下优点：</p>
+<ul>
+<li><strong>用户独立性：</strong>基于内容的推荐仅使用当前用户提供的评分来构建自己的个人信息。而协同过滤的方法需要其他用户的评分，来发现该用户最近的近邻。</li>
+<li><strong>透明度：</strong>通过显式地列出使得物品出现在推荐列表中的内容特征或描述，可以解释推荐系统是如何工作的。这些物品特征是决定是否信任该推荐系统的指标。协同过滤系统是一个黑盒子，对一个推荐物品的唯一解释是相似品味的未知用户喜欢过该物品。</li>
+<li><strong>新物品：</strong>基于内容的推荐系统在没有任何用户评分的情况下也可以进行推荐。因此，新物品没有第一次评分会影响协同过滤推荐系统，因为协同过滤推荐系统仅依赖于用户的偏好产生推荐。所以只有当一个新物品被一系列用户评分之后，系统才可能推荐它。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li><strong>可分析的内容有限：</strong>基于内容的推荐技术有一个天然的限制，即与推荐对象相关的特征数量和类型上的限制，不论是自动还是手动的。邻域知识一般是必需的。当分析的物品内容信息不足以区分那些物品是用户喜欢的、哪些物品是用户不喜欢的时候，没有任何基于内容的推荐系统可以给出合适的推荐。</li>
+<li><strong>过度特化：</strong>基于内容的推荐在本质 上无法发现一些出人意料的物品。系统建议的物品和用户的个人信息高度匹配的时候，给用户的推荐也将会是与已有的评分物品相似的物品。由于基于内容的系统产生的推荐物品在新颖性上的缺陷，称作惊喜都问题。</li>
+<li><strong>新用户：</strong>在一个基于内容的推荐系统可以真正理解用户偏好且给出准确的推荐之前，需要收集足够的评分。因此，当只有很少的评分可用的时候，即对于新用户来说，系统不能提供可靠的推荐。</li>
+</ul>
+<h2 id="基于内容的推荐系统的现状"><a href="#基于内容的推荐系统的现状" class="headerlink" title="基于内容的推荐系统的现状"></a>基于内容的推荐系统的现状</h2><h3 id="物品表示"><a href="#物品表示" class="headerlink" title="物品表示"></a>物品表示</h3><p>推荐给用户的物品可以表示成一系列特征，也称为属性。例如，在一个电影推荐的应用中，描述一个电影的特征有演员、导演、类型主题等。当每个物品由一系列相同的属性表示，并且知道这些属性所有可能的取值时该物品就被表示成了结构化数据。在此情况下，许多机器学习的算法可以用来学习用户个人信息。</p>
+<p>在大多数基于内容过滤的系统，物品表示是从Web网页、电子邮件、新闻或产品描述中抽取的文本特征。由于自然语言的奇异，在学习用户个人信息时，文本特征带来大量混乱。问题是传统的基于关键词的个人信息不能获取用户感兴趣的语义，因为他们主要是通过字符串匹配操作来进行的。字符串匹配有如下问题：</p>
+<ul>
+<li><strong>一词多义</strong>，一个词有多个释义。</li>
+<li><strong>同义，</strong>多个词有相同的意思。</li>
+</ul>
+<p>导致的结果就是，由于同义词的存在，当个人信息不包含文档中的准确关键词时， 相关的信息就会被遗漏；同时由于一词多义，错误的文档也被认为是相关的。</p>
+<p>语义分析及其与个性化模型的结合是解决问题的方法之一。主要思路是采用知识库，如词典或本体，先来注释物品和表示个人信息，由此获得一个用户信息所需的语义翻译。</p>
+<h4 id="基于关键字向量空间模型"><a href="#基于关键字向量空间模型" class="headerlink" title="基于关键字向量空间模型"></a>基于关键字向量空间模型</h4><p>大多数基于内容的推荐系统使用相对简单的检索模型，例如，关键字匹配或者基于TF-IDF权重的向量空间模型(VSM)。向量空间模型是一个文本文档的空间表示方法。在该模型中，每个文档被表示成一个n维空间的向量，每一维对应给定文档集合词汇表中的一个词。形式上，每篇文档被表示成词权重的向量，其中权重表示这篇文档和该词的关联度。</p>
+<p>在向量空间模型中，文档表示有两个问题：为单词赋予权重和度量特征向量的相似度。常用的加权模式有基于文本实验观察结果的TF-IDF(词频-逆文档频率)：</p>
+<ul>
+<li>稀有词相关性不小于频繁词相关性(逆文档频率假设)</li>
+<li>一篇文档中多处出现的词的相关性不小于只出现一次词的相关性；</li>
+<li>长文档不一定好于短文档</li>
+</ul>
+<p>在一篇文档中频繁出现(TF=词频)但很少出现在语料库中其他的文档里(IDF=逆文档频率)的单词，与该文档主题的相关性可能很大。结果权重向量的归一化防止了长文档有更好的检索机会的问题。TF-IDF函数很好地解释了这些假设：</p>
+<img src="/blog/2021/03/12/RecommenderSystem-PartII/2.png" class="" title="This is an image">
     </div>
 
     
@@ -303,7 +338,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E5%86%85%E5%AE%B9%E7%9A%84%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%89%8D%E6%B2%BF%E5%92%8C%E8%B6%8B%E5%8A%BF"><span class="nav-number">1.</span> <span class="nav-text">基于内容的推荐系统：前沿和趋势</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E5%86%85%E5%AE%B9%E7%9A%84%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%9F%BA%E7%A1%80"><span class="nav-number">1.2.</span> <span class="nav-text">基于内容的推荐系统的基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E5%86%85%E5%AE%B9%E7%9A%84%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%AB%98%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84"><span class="nav-number">1.2.1.</span> <span class="nav-text">基于内容的推荐系统的高层次结构</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E5%86%85%E5%AE%B9%E7%9A%84%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%89%8D%E6%B2%BF%E5%92%8C%E8%B6%8B%E5%8A%BF"><span class="nav-number">1.</span> <span class="nav-text">基于内容的推荐系统：前沿和趋势</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E5%86%85%E5%AE%B9%E7%9A%84%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%9F%BA%E7%A1%80"><span class="nav-number">1.2.</span> <span class="nav-text">基于内容的推荐系统的基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E5%86%85%E5%AE%B9%E7%9A%84%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%AB%98%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84"><span class="nav-number">1.2.1.</span> <span class="nav-text">基于内容的推荐系统的高层次结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E5%86%85%E5%AE%B9%E8%BF%87%E6%BB%A4%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-number">1.2.2.</span> <span class="nav-text">基于内容过滤的优缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E5%86%85%E5%AE%B9%E7%9A%84%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%8E%B0%E7%8A%B6"><span class="nav-number">1.3.</span> <span class="nav-text">基于内容的推荐系统的现状</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%A9%E5%93%81%E8%A1%A8%E7%A4%BA"><span class="nav-number">1.3.1.</span> <span class="nav-text">物品表示</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E5%85%B3%E9%94%AE%E5%AD%97%E5%90%91%E9%87%8F%E7%A9%BA%E9%97%B4%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">基于关键字向量空间模型</span></a></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
