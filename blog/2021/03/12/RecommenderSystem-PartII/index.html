@@ -32,8 +32,9 @@
 <meta property="og:image" content="http://example.com/blog/2021/03/12/RecommenderSystem-PartII/3.png">
 <meta property="og:image" content="http://example.com/blog/2021/03/12/RecommenderSystem-PartII/2.png">
 <meta property="og:image" content="http://example.com/blog/2021/03/12/RecommenderSystem-PartII/4.png">
+<meta property="og:image" content="http://example.com/blog/2021/03/12/RecommenderSystem-PartII/5.png">
 <meta property="article:published_time" content="2021-03-12T08:07:58.000Z">
-<meta property="article:modified_time" content="2021-03-13T08:26:26.649Z">
+<meta property="article:modified_time" content="2021-03-15T05:21:29.958Z">
 <meta property="article:author" content="Joker Jackson">
 <meta property="article:tag" content="推荐系统">
 <meta property="article:tag" content="RecommenderSystem">
@@ -194,7 +195,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-13 16:26:26" itemprop="dateModified" datetime="2021-03-13T16:26:26+08:00">2021-03-13</time>
+                <time title="Modified: 2021-03-15 13:21:29" itemprop="dateModified" datetime="2021-03-15T13:21:29+08:00">2021-03-15</time>
               </span>
 
           
@@ -265,6 +266,25 @@
 <img src="/blog/2021/03/12/RecommenderSystem-PartII/4.png" class="" title="This is an image">
 
 <p>其实现了归一化的假设。</p>
+<p>一个相似度的度量需要确定两个文档的接近程度，常用余弦相似度：</p>
+<img src="/blog/2021/03/12/RecommenderSystem-PartII/5.png" class="" title="This is an image">
+
+<p>在依赖于向量空间模型的基于内容的推荐系统中，用户个人信息和物品都被表示成带权重的词向量。预测用户对一个待定物品的兴趣可以通过计算余弦相似度得到。</p>
+<h4 id="基于关键词系统概述"><a href="#基于关键词系统概述" class="headerlink" title="基于关键词系统概述"></a>基于关键词系统概述</h4><p>基于关键词的推荐系统发展时间相对较短，在很多领域都可以发现他们在应用程序中的应用。</p>
+<p>在 <strong>Web 推荐系统</strong>的领域中，关于内容的著名系统有 Letizia、Personal WebWatcher、Syskill&amp;Webert、ifWeb、Amalthea和WebMate。</p>
+<p>在新闻过滤领域，著名的推荐系统有NewT、PSUN、INFOrmer、NewsDude、Daily Learner 和 YourNews.</p>
+<p>对过去主流系统的发展进行分析学习，最重要的发现是，同时对物品和用户信息采用基于关键词的表示，并通过足够多的信息证明用户兴趣可用，可以准确预测用户行为。大多数基于内容的推荐系统被认为是建立在包括用户兴趣正例和负例文本训练集上的文本分类器。因此推荐的准确率依赖于大量的训练样本，而训练样本的好坏又依赖于对用户兴趣的可靠的句法分析的结果。</p>
+<h4 id="运用本体的语义分析"><a href="#运用本体的语义分析" class="headerlink" title="运用本体的语义分析"></a>运用本体的语义分析</h4><p>语义分析需要学习大量准确的信息，这些信息包括参考在外部知识基础上定义的概念。这个方法的主要的目的是提供一个有文化和语言背景知识的推荐系统，且系统具有翻译自然语言文档和分析内容的能力。</p>
+<p>策略大致主要考虑以下几个标准：</p>
+<ul>
+<li>包含知识源的类型；</li>
+<li>物品的注释或表示所采用的技术；</li>
+<li>用户个人信息中内容的类型；</li>
+<li>物品-用户个人信息匹配策略；</li>
+</ul>
+<p>SiteIF是一个多语言新闻网站的个性化的工具。这是第一个采用基于感知的文档表示来对用户兴趣建模的系统。</p>
+<p>ITR(Item Recommender)：可以在多个领域应用的物品推荐系统(如电影、音乐、书籍)，它以文本的形式提供了对物品的描述。ITR在学习用户信息的过程中集合了多语言知识，但是与词邻域消岐不同，词感知消岐采取的是基于感知的文档表示。用户信息采用一个朴素贝叶斯二进制文本分类器可以将文本分类成感兴趣和不感兴趣。在训练阶段，根据条件概率估计值，可以得到更能象征用户偏好的那些同义词集合。文本 - 用户信息匹配操作在于通过使用用户信息的同义词集合的概率，计算物品属于”感兴趣”类的概率。</p>
+<p>SEWeP(Semantic Enhancement for Web Personalization)：一个 Web 个性化系统，它利用日志和 Web 站点内容的语义来实现个性化。</p>
 
     </div>
 
@@ -350,7 +370,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E5%86%85%E5%AE%B9%E7%9A%84%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%89%8D%E6%B2%BF%E5%92%8C%E8%B6%8B%E5%8A%BF"><span class="nav-number">1.</span> <span class="nav-text">基于内容的推荐系统：前沿和趋势</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E5%86%85%E5%AE%B9%E7%9A%84%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%9F%BA%E7%A1%80"><span class="nav-number">1.2.</span> <span class="nav-text">基于内容的推荐系统的基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E5%86%85%E5%AE%B9%E7%9A%84%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%AB%98%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84"><span class="nav-number">1.2.1.</span> <span class="nav-text">基于内容的推荐系统的高层次结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E5%86%85%E5%AE%B9%E8%BF%87%E6%BB%A4%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-number">1.2.2.</span> <span class="nav-text">基于内容过滤的优缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E5%86%85%E5%AE%B9%E7%9A%84%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%8E%B0%E7%8A%B6"><span class="nav-number">1.3.</span> <span class="nav-text">基于内容的推荐系统的现状</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%A9%E5%93%81%E8%A1%A8%E7%A4%BA"><span class="nav-number">1.3.1.</span> <span class="nav-text">物品表示</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E5%85%B3%E9%94%AE%E5%AD%97%E5%90%91%E9%87%8F%E7%A9%BA%E9%97%B4%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">基于关键字向量空间模型</span></a></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E5%86%85%E5%AE%B9%E7%9A%84%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%89%8D%E6%B2%BF%E5%92%8C%E8%B6%8B%E5%8A%BF"><span class="nav-number">1.</span> <span class="nav-text">基于内容的推荐系统：前沿和趋势</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E5%86%85%E5%AE%B9%E7%9A%84%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%9F%BA%E7%A1%80"><span class="nav-number">1.2.</span> <span class="nav-text">基于内容的推荐系统的基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E5%86%85%E5%AE%B9%E7%9A%84%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%AB%98%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84"><span class="nav-number">1.2.1.</span> <span class="nav-text">基于内容的推荐系统的高层次结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E5%86%85%E5%AE%B9%E8%BF%87%E6%BB%A4%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-number">1.2.2.</span> <span class="nav-text">基于内容过滤的优缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E5%86%85%E5%AE%B9%E7%9A%84%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%8E%B0%E7%8A%B6"><span class="nav-number">1.3.</span> <span class="nav-text">基于内容的推荐系统的现状</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%A9%E5%93%81%E8%A1%A8%E7%A4%BA"><span class="nav-number">1.3.1.</span> <span class="nav-text">物品表示</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E5%85%B3%E9%94%AE%E5%AD%97%E5%90%91%E9%87%8F%E7%A9%BA%E9%97%B4%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">基于关键字向量空间模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E5%85%B3%E9%94%AE%E8%AF%8D%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">基于关键词系统概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%90%E7%94%A8%E6%9C%AC%E4%BD%93%E7%9A%84%E8%AF%AD%E4%B9%89%E5%88%86%E6%9E%90"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">运用本体的语义分析</span></a></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
